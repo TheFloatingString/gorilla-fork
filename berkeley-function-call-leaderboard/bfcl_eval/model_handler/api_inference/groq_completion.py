@@ -198,10 +198,13 @@ class GroqCompletionHandler(BaseHandler):
 
     def _query_prompting(self, inference_data: dict):
         inference_data["inference_input_log"] = {"message": repr(inference_data["message"])}
+        curr_model_name = self.model_name
+        if curr_model_name.startswith("groq/"):
+            curr_model_name = curr_model_name[5:]
 
         return self.generate_with_backoff(
             messages=inference_data["message"],
-            model=self.model_name,
+            model=curr_model_name,
             temperature=self.temperature,
             store=False,
         )

@@ -23,6 +23,7 @@ from bfcl_eval.model_handler.api_inference.nvidia import NvidiaHandler
 from bfcl_eval.model_handler.api_inference.openai_completion import (
     OpenAICompletionsHandler,
 )
+from bfcl_eval.model_handler.api_inference.groq_completion import GroqCompletionHandler
 from bfcl_eval.model_handler.api_inference.openai_response import OpenAIResponsesHandler
 from bfcl_eval.model_handler.api_inference.qwen import (
     QwenAgentNoThinkHandler,
@@ -355,6 +356,30 @@ api_inference_model_map = {
         output_price=4.40,
         is_fc_model=True,
         underscore_to_dot=True,
+    ),
+    "groq/llama-3.1-8b-instant": ModelConfig(
+        model_name="groq/llama-3.1-8b-instant",
+        display_name="Groq-Llama-3.1-8B-Instant (Prompt)",
+        url="https://console.groq.com/docs/models",
+        org="Groq",
+        license="Proprietary",
+        model_handler=GroqCompletionHandler,
+        input_price=None,
+        output_price=None,
+        is_fc_model=False,
+        underscore_to_dot=False,
+    ),
+    "groq/llama-3.3-70b-versatile": ModelConfig(
+        model_name="groq/llama-3.3-70b-versatile",
+        display_name="Groq-Llama-3.3-70B-Versatile (Prompt)",
+        url="https://console.groq.com/docs/models",
+        org="Groq",
+        license="Proprietary",
+        model_handler=GroqCompletionHandler,
+        input_price=None,
+        output_price=None,
+        is_fc_model=False,
+        underscore_to_dot=False,
     ),
     "claude-opus-4-20250514": ModelConfig(
         model_name="claude-opus-4-20250514",

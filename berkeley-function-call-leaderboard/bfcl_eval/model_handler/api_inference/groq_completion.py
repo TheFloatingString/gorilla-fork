@@ -24,7 +24,7 @@ class GroqCompletionHandler(BaseHandler):
         super().__init__(model_name, temperature)
         self.model_style = ModelStyle.OpenAI_Completions
         self.client = OpenAI(
-            base_url="https://api.groq.com/v1",
+            base_url="https://api.groq.com/openai/v1",
             api_key=os.getenv("GROQ_API_KEY"),
         )
 
